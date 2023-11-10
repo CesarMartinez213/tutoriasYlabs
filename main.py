@@ -1,5 +1,8 @@
 from os import system
 
+############# programa que evalua/cambia de distintas maneras una cadena dada por el usuario #######
+
+#################### menu para conocer que opcion se desea realizar ################################
 while(True):
     print("**************************")
     print(" Menu desplegable ")
@@ -13,6 +16,7 @@ while(True):
     print()
     cadenaUsuario = str(input("Ingrese la cadena que desea procesar "))
     opcion = str(input("Ingrese la opción que desea ejecutar "))
+    ##################### accion a realizar si la opcion a es seleccionada ########################
     if( opcion == "a"):
         palabrasCadena = cadenaUsuario.split()
         vocalPalabraABuscar = str(input("Ingrese la vocal que desea buscar "))
@@ -37,6 +41,8 @@ while(True):
         entrada = input()
         system("cls")
 
+################## accion a realizar si la opcion b es seleccionada #####################
+
     elif opcion == "b":
         palabrasCadena = cadenaUsuario.split()
         listaPalabras = []
@@ -50,6 +56,9 @@ while(True):
         print("Presione ENTER para continuar...")
         entrada = input()
         system("cls")
+
+##################### accion a realizar si la opcion c es seleccionada #####################
+
     elif opcion == "c":
         subcadenaBuscada = str(input("Ingrese la subcadena que desea reemplazar: "))
         if(cadenaUsuario.find(subcadenaBuscada) == -1):
@@ -66,6 +75,9 @@ while(True):
         print("Presione ENTER para continuar...")
         entrada = input()
         system("cls")
+
+#################### accion a realizar si la opcion d es seleccionada #########################
+
     elif opcion == "d":
         subcadenaBuscada = str(input("Ingrese la subcadena que desea eliminar"))
         listaPalabrasEliminadas = []
@@ -87,8 +99,14 @@ while(True):
         print("Presione ENTER para continuar...")
         entrada = input()
         system("cls")
+
+##################### accion a realizar si la opcion e es seleccionada #################
+
     elif opcion == "e":
         break
+
+################### accion a realizar si la opcion no es valida #####################
+
     else:
         print(" ----- Inserte una opción valida ----- ")
         print("Presione ENTER para continuar...")
