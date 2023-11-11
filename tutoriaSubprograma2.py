@@ -14,7 +14,7 @@ def comprobarLongitud(cadenaUsuario):
 
 def comprobarInicial(cadenaUsuario):
     inicialValida = 0
-    if [(chr(cadenaUsuario[0])>64) and (chr(cadenaUsuario)<91)] or [(chr(cadenaUsuario[0])>96) and (chr(cadenaUsuario)<123)]:
+    if [(ord(cadenaUsuario[0])>64) and (ord(cadenaUsuario)<91)] or [(ord(cadenaUsuario[0])>96) and (ord(cadenaUsuario)<123)]:
         inicialValida = 1
     else:
         print('el 1er carater del identificador es invalido')
@@ -26,7 +26,7 @@ def comprobarInicial(cadenaUsuario):
 def comprobarCaracteres(cadenaUsuario):
     caracteresValidos = 0
     for i in range(len(cadenaUsuario)):
-        if [(chr(cadenaUsuario[i])>47) and (chr(cadenaUsuario[i])<58)] or [(chr(cadenaUsuario[i])>64) and (chr(cadenaUsuario[i])<91)] or [(chr(cadenaUsuario[i])>96) and (chr(cadenaUsuario[i])<123)] or [chr(cadenaUsuario[i])=45] or [chr(cadenaUsuario[i]=95)]:
+        if [(ord(cadenaUsuario[i])>47) and (ord(cadenaUsuario[i])<58)] or [(ord(cadenaUsuario[i])>64) and (ord(cadenaUsuario[i])<91)] or [(ord(cadenaUsuario[i])>96) and (ord(cadenaUsuario[i])<123)] or [ord(cadenaUsuario[i])=45] or [ord(cadenaUsuario[i]=95)]:
             caracteresValidos = 1
         else:
             print('el identificador cuenta con un caracter invalido')
