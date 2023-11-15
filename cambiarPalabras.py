@@ -19,16 +19,15 @@ def bus4letras(chainUser):
             contLetras = contLetras + 1
         else:
             if contLetras == 4:
-                for i in range(find(palabra)+3):
-                    palabra[i] = chr(42)
+                for i in range(len(palabra)):
+                    palabra[i] = "*"
         newChain = newChain + palabra + " "
-    print(newChain)
     return (newChain)
 
 # programa principal #
 
 chainUser=str(input('ingrese la cadena: '))
-longitud = impLong
-newChain = bus4letras
+longitud = impLong(chainUser)
+newChain = bus4letras(chainUser)
 print(longitud)
 print(newChain)
