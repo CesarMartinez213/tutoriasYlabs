@@ -19,9 +19,9 @@ def bus4letras(chainUser):
             contLetras = contLetras + 1
         else:
             if contLetras == 4:
-                for i in range(len(palabra)):
-                    palabra[i] = "*"
-        newChain = newChain + palabra + " "
+                for i in range(chainUser.find(palabra) , chainUser.find(palabra)+3 , 1):
+                    chainUser[i] = "*"
+    newChain = newChain + palabra + " "
     return (newChain)
 
 # programa principal #
