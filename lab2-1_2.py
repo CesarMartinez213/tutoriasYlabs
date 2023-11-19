@@ -6,15 +6,15 @@
 def nroPruebas(N,num):
     contCifras = 0
     nvoNumero = num
-    automorfico = 0
+    automorfico = 1
     while ( nvoNumero != 0 ):
         nvoNumero = nvoNumero // 10
         contCifras = contCifras + 1
     for i in range(1,N,1):
         divisor = 10**contCifras
         resto = (num**i) % divisor
-        if (resto == num) :
-            automorfico = 1
+        if (resto != num) :
+            automorfico = 0
     return (automorfico)
 
 # Programa principal #
