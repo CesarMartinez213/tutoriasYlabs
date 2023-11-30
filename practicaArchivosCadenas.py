@@ -35,7 +35,7 @@ def BubbleSort (ListaPalabras):
     ListaPalabras = ArregloVocales(chain)
     for i in range(len(ListaPalabras)):
         for j in range(len(ListaPalabras)-i-1):
-            if ListaPalabras[j] < ListaPalabras[j+1]:
+            if len(ListaPalabras[j])< len(ListaPalabras[j+1]):
                 temp = ListaPalabras[j]
                 ListaPalabras[j] = ListaPalabras[j+1]
                 ListaPalabras[j+1] = temp
