@@ -1,5 +1,5 @@
 N=int(input('ingrese N: '))
-tabla=[[None for i in range(N)] for j in range(N)]
+tabla=[[ 0 for i in range(N)] for j in range(N)]
 BordeIzq = (N//2)
 BordeDer = (N//2)
 k=2
