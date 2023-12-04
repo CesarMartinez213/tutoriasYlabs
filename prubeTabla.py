@@ -2,8 +2,8 @@ N=int(input('ingrese N: '))
 tabla=[[None for i in range(N)] for j in range(N)]
 BordeIzq = (N//2)
 BordeDer = (N//2)
-k=1
-tabla[0][N//2] = 0;
+k=2
+tabla[0][N//2] = 1
 for i in range(1,N-1):
     if(i<=N//2):
         for j in range((BordeIzq-i),(BordeDer+i)+1):
@@ -17,6 +17,6 @@ for i in range(1,N-1):
             BordeDer = BordeDer - 1
             k=k+1
 
-tabla[N-1][N//2] =k;
+tabla[N-1][N//2] =k
 for fila in tabla:
     print(fila)
