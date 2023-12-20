@@ -58,31 +58,49 @@ def SelDirecta(vector):
 
 ### metodo de quicksort ###
 
+def partition(vectorOrd, low, high):
+    pivot = vectorOrd[high]
+    i = low - 1
+    for j in range(low, high):
+        if vectorOrd[j] <= pivot:
+            i += 1
+            print(f"cambiando los nros de indices {i} y {j}")  # Imprime los intercambios
+            vectorOrd[i], vectorOrd[j] = vectorOrd[j], vectorOrd[i]
+    print(f"se establece el indice en la posicion {i + 1}")  # Imprime la colocación del pivote
+    vectorOrd[i + 1], vectorOrd[high] = vectorOrd[high], vectorOrd[i + 1]
+    return i + 1
 
-def quicksort(vector):
+def quickSort(vector, low, high):
     vectorOrd = vector
-    if len(vectorOrd) <= 1:
-        return vectorOrd
-
-    pivote = vectorOrd[len(vectorOrd) // 2]
-    sublista_izquierda = [x for x in vectorOrd if x <= pivote]
-    sublista_derecha = [x for x in vectorOrd if x > pivote]
-
-    print("Lista original:", vectorOrd)
-    print("Pivote:", pivote)
-    print("Sublista izquierda:", sublista_izquierda)
-    print("Sublista derecha:", sublista_derecha)
-
-    return quicksort(sublista_izquierda) + [pivote] + quicksort(sublista_derecha)
+    if low < high:
+        pi = partition(vectorOrd, low, high)
+        print(f"acomodando los nros en subListas desde el {low} hasta {pi - 1}")  # Imprime la llamada recursiva para la sublista izquierda
+        quickSort(vectorOrd, low, pi - 1)
+        print(f"acomodando nros en la sublista desde el {pi + 1} hasta {high}")  # Imprime la llamada recursiva para la sublista derecha
+        quickSort(vectorOrd, pi + 1, high)
 
 
 
 ### metodo de busqueda binaria (luego de usar quicksort) ###
 
-def busquedaBinaria(vectorOrd , numABuscar):
+def busquedaBinaria(vectorOrd , k, N ):
 
-    numEncontrado = 0
-    return
+    Encontrado = False
+    primero = 0
+    ultimo = N - 1
+    
+    while (primero <= ultimo) and not Encontrado:
+        
+        medio = (primero + ultimo)//2
+        if (vectorOrd[medio] == k):
+            Encontrado = True
+        else:
+            if k < vectorOrd[medio]:
+                ultimo = medio - 1
+            else:
+                primero = medio + 1
+
+    return Encontrado
 
 ### programa pprincipal ------------------------------------------------------
 N=int(input('ingrese el tamaño del vector: '))
@@ -139,12 +157,23 @@ while (opcion != 0):
     
     elif (opcion == 4):
 
+        low = 0
+        high = len(vector)-1
         print(f' el vector desordenado se veria asi: {vector}')
-        vectorOrd = quicksort(vector)
-        print(f'el vector ordenado se veria asi : {vectorOrd}')
+        vectorOrd = quickSort(vector, low, high)
         print('--------------------------------------------------------------------')
         print('1)insercion directa(baraja) ; 2)intercambio directo(burbuja)')
         print('3)seleccion directa ; 4)ordenamiento recursivo(quicksort)')
-        print(' 0)si desea cerrar el programa')
+        print('5)si desea saber si algun nro esta dentro del arreglo ;0)si desea cerrar el programa')
         opcion=int(input('ingrese el metodo de ordenamiento que desea realizar: '))
         print('--------------------------------------------------------------------')
+
+        if (opcion == 5):
+        
+            k = int(input('¿Qué numero desea buscar?  '))
+            Encontrado = busquedaBinaria(vectorOrd, k, N)
+            if Encontrado == False :
+                print('El numero no se encuentra en la lista')
+            else:
+                print('el numero se encuentra en la lista, asi se veria la lista ordenada:')
+                print(vectorOrd)

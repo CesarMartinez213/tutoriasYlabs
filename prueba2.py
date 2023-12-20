@@ -1,32 +1,26 @@
-def quicksortAlg(array):
-    
-    quicksort(array, 0, len(array)-1)
+def partition(array, low, high):
+    pivot = array[high]
+    i = low - 1
+    for j in range(low, high):
+        if array[j] <= pivot:
+            i += 1
+            print(f"Swapping {array[i]} and {array[j]}")  # Imprime los intercambios
+            array[i], array[j] = array[j], array[i]
+    print(f"Placing pivot {pivot} at index {i + 1}")  # Imprime la colocación del pivote
+    array[i + 1], array[high] = array[high], array[i + 1]
+    return i + 1
 
-def quicksort(array, s, e):
-    if s < e:
-        medio = (s + e)//2
-        pivote = array[medio]
-        indice = partition(array, s, e, pivote)
-        quicksort(array, s, indice-1)
-        quicksort(array, indice, e)
+def quickSort(array, low, high):
+    if low < high:
+        pi = partition(array, low, high)
+        print(f"Recursively sorting left subarray: {array[:pi]}")  # Imprime la llamada recursiva para la sublista izquierda
+        quickSort(array, low, pi - 1)
+        print(f"Recursively sorting right subarray: {array[pi + 1:]}")  # Imprime la llamada recursiva para la sublista derecha
+        quickSort(array, pi + 1, high)
 
-def partition(array, l, r, pivote):
+array = [10, 2, 37, 8, 1, 49, 13]
+low = 0
+high = len(array) - 1
+quickSort(array, low, high)
 
-    while (l <= r):
-
-        while (array[l] < pivote):
-            l=l+1
-        
-        while (pivote < array[r]):
-            r=r-1
-        
-        if (l <= r):
-            array[l],array[r] = array[l],array[r]
-            l = l+1
-            r = r-1
-    return l 
-
-array = [2, 5, 3, 1, 4]
-print(f'before sort: {array}' )
-quicksortAlg(array)     
-print(f'after sort: {array}')  
+print(f"Sorted array: {array}")
