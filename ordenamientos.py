@@ -64,21 +64,21 @@ def partition(vectorOrd, low, high):
     for j in range(low, high):
         if vectorOrd[j] <= pivot:
             i += 1
-            print(f"cambiando los nros de indices {i} y {j}")  # Imprime los intercambios
-            vectorOrd[i], vectorOrd[j] = vectorOrd[j], vectorOrd[i]
-    print(f"se establece el indice en la posicion {i + 1}")  # Imprime la colocación del pivote
+            if vectorOrd[i] is not None:
+                vectorOrd[i], vectorOrd[j] = vectorOrd[j], vectorOrd[i]
+    print(f"se establece el indice en la posicion {i + 1}")
     vectorOrd[i + 1], vectorOrd[high] = vectorOrd[high], vectorOrd[i + 1]
     return i + 1
 
-def quickSort(vector, low, high):
-    vectorOrd = vector
+def quickSort(vectorOrd, low, high):
     if low < high:
         pi = partition(vectorOrd, low, high)
+        print(f'{vectorOrd} ------------------------------------------------')
         print(f"acomodando los nros en subListas desde el {low} hasta {pi - 1}")  # Imprime la llamada recursiva para la sublista izquierda
         quickSort(vectorOrd, low, pi - 1)
+        print(f'{vectorOrd} ------------------------------------------------')
         print(f"acomodando nros en la sublista desde el {pi + 1} hasta {high}")  # Imprime la llamada recursiva para la sublista derecha
         quickSort(vectorOrd, pi + 1, high)
-
 
 
 ### metodo de busqueda binaria (luego de usar quicksort) ###
@@ -91,14 +91,15 @@ def busquedaBinaria(vectorOrd , k, N ):
     
     while (primero <= ultimo) and not Encontrado:
         
-        medio = (primero + ultimo)//2
-        if (vectorOrd[medio] == k):
+        # z es el punto medio de la lista
+        z = (primero + ultimo)//2
+        if (vectorOrd[z] == k):
             Encontrado = True
         else:
-            if k < vectorOrd[medio]:
-                ultimo = medio - 1
+            if k < vectorOrd[z]:
+                ultimo = z - 1
             else:
-                primero = medio + 1
+                primero = z + 1
 
     return Encontrado
 
@@ -157,10 +158,13 @@ while (opcion != 0):
     
     elif (opcion == 4):
 
+        vectorOrd = vector
+        print(vectorOrd)
         low = 0
         high = len(vector)-1
         print(f' el vector desordenado se veria asi: {vector}')
-        vectorOrd = quickSort(vector, low, high)
+        vectorOrd = quickSort(vectorOrd, low, high)
+        print(f'el vector ordenado se veria asi: {vectorOrd}')
         print('--------------------------------------------------------------------')
         print('1)insercion directa(baraja) ; 2)intercambio directo(burbuja)')
         print('3)seleccion directa ; 4)ordenamiento recursivo(quicksort)')
