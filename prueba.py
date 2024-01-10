@@ -6,18 +6,18 @@ def partition(array, low, high):
     for j in range(low, high):
         if array[j] <= pivot:
             i += 1
-            print(f"Swapping indices {i} and {j}")  # Imprime los intercambios
+            print(f"cambiando los nros de indices {i} y {j}")  # Imprime los intercambios
             array[i], array[j] = array[j], array[i]
-    print(f"Placing pivot at index {i + 1}")  # Imprime la colocación del pivote
+    print(f"se establece el indice en la posicion {i + 1}")  # Imprime la colocación del pivote
     array[i + 1], array[high] = array[high], array[i + 1]
     return i + 1
 
 def quickSort(array, low, high):
     if low < high:
         pi = partition(array, low, high)
-        print(f"Recursively sorting subarrays with indices {low} to {pi - 1}")  # Imprime la llamada recursiva para la sublista izquierda
+        print(f"acomodando los nros en subListas desde el {low} hasta {pi - 1}")  # Imprime la llamada recursiva para la sublista izquierda
         quickSort(array, low, pi - 1)
-        print(f"Recursively sorting subarrays with indices {pi + 1} to {high}")  # Imprime la llamada recursiva para la sublista derecha
+        print(f"acomodando nros en la sublista desde el {pi + 1} hasta {high}")  # Imprime la llamada recursiva para la sublista derecha
         quickSort(array, pi + 1, high)
 
 array = [10, 2, 37, 8, 1, 49, 13]

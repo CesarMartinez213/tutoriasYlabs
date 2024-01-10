@@ -63,7 +63,7 @@ def partition(vectorOrd, low, high):
     i = low - 1
     for j in range(low, high):
         if vectorOrd[j] <= pivot:
-            i += 1
+            i = i + 1
             if vectorOrd[i] is not None:
                 vectorOrd[i], vectorOrd[j] = vectorOrd[j], vectorOrd[i]
     print(f"se establece el indice en la posicion {i + 1}")

@@ -1,0 +1,51 @@
+Algoritmo
+Vector = [N] # vector de n elementos
+Puntero = 1
+Final = N # asumiendo que el vector tiene N elementos
+Encontrado = “F”
+Escribir (“Ingrese el número a buscar”) # Lectura del numero a buscar
+Leer (número)
+R Mientras ( Encontrado = “F” y Puntero <= Final )
+    mitad = (puntero+final)// 2
+    si numero = vector[mitad]
+        Encontrado = “V”
+    de lo contrario
+        si (número < vector (mitad) )
+            Final = mitad -1
+        de lo contrario
+            Puntero = mitad + 1
+        fin si
+    fin si
+Fin rm
+Si Encontrado = “ V”
+    Escribir (“El numero se encuentra en la posición”, mitad )
+De lo contrario
+    Escribir (“El valor no se encuentra”)
+Fin si
+
+###-----------------------------------------------------------------
+
+Algoritmo BúsquedaBinaria
+# Declaraciones
+Inicio
+# Llenar X [n] , Ordenar X [n] # El arreglo se supone que esta ordenado
+Escribir (“Ingrese el número a buscar”) # Lectura del numero a buscar
+Leer (K)
+Bajo = 1
+Alto = N
+Central = ( Bajo + Alto)//2
+R Mientras ( Bajo <= Alto) y (X [ Central] <> K ) hacer
+    Si K < X [Central] entonces
+        Alto = Central - 1
+    de lo contrario
+        Bajo = Central + 1
+    fin si
+    Central = (Bajo + Alto)// 2
+Fin rm
+Si K = X [Central]
+    Escribir (“El numero se encuentra en la posición”, Central )
+De lo contrario
+    Escribir (“El valor no se encuentra”)
+Fin si
+FIN
+
